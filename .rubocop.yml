@@ -28,6 +28,7 @@ IndentationConsistency:
 
 Metrics/BlockLength:
   Exclude:
+    - 'spec/**/*'
     - 'Guardfile'
 
 Naming/FileName:
