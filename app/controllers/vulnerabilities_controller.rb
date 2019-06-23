@@ -10,7 +10,9 @@ class VulnerabilitiesController < ApplicationController
 
   def index
     validate_request
-    render json: [], status: :ok
+    vuln = Vulnerability.new
+    list = vuln.check(create_params)
+    render json: list, status: :ok
   end
 
   private
@@ -25,5 +27,13 @@ class VulnerabilitiesController < ApplicationController
 
     def required_parameters(e)
       render json: { validation_errors: e.params.map { |p| { p => 'required' } } }, status: :bad_request
+    end
+
+    def create_params
+      {
+        group_id: params[:group_id],
+        artifact_id: params[:artifact_id],
+        version: params[:version],
+      }
     end
 end
