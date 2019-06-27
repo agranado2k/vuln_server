@@ -5,3 +5,8 @@ vulnerabilities:
     group_id: 'com.example.my_group'
     artifact_id: 'my_package'
     version: '1.0.0'
+  - rank: 'M'
+    name: 'Really important vulnerability'
+    group_id: commons-logging
+    artifact_id: commons-logging
+    version: 1.1.1
